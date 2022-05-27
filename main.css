@@ -1,0 +1,74 @@
+  @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+  /*This is the family font which is imported (Muli) (sans-serif)*/
+  
+  * {
+      box-sizing: border-box;
+  }
+  
+  body {
+      font-family: 'Muli', 'sans-serif';
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      /*it means 100% viewport height */
+      overflow: hidden;
+      /* The overflow property specifies what happens if content overflows an element's box */
+  }
+  
+  .container {
+      display: flex;
+      width: 1024px;
+      /* width of a full page opened in browser is 1024 px */
+  }
+  
+  .panel {
+      background-size: auto 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 80vh;
+      /* The height of each card is almost 80% of the whole page size */
+      color: white;
+      cursor: pointer;
+      border-radius: 50px;
+      flex: 0.5;
+      /* It is the size of every panel unopened and after we open them it will be changed from 0.5 to 5 */
+      margin: 10px;
+      /* we separete cards by giving margin by the amount of 10px */
+      position: relative;
+      transition: flex 0.7 ease-in;
+  }
+  
+  .panel h3 {
+      position: absolute;
+      font-size: 24px;
+      bottom: 20px;
+      left: 20px;
+      margin: 0;
+      opacity: 0;
+  }
+  /* when the panel is active change the flex size into 5(note: before active it was 0.5) */
+  
+  .panel.active {
+      flex: 5;
+  }
+  
+  .panel.active h3 {
+      opacity: 1;
+      transition: opacity 0.2 ease-in 0.4s;
+  }
+  /* we use media query here to do some magic!
+   when the screen is to small which we are going to set it, it will only show 3 cards instead of 5.  */
+  /* if only under 480px size this below lines will happen! */
+  
+  @media(max-width: 480px) {
+      .container {
+          width: 100vw;
+      }
+      .panel:nth-of-type(4),
+      .panel:nth-of-type(5) {
+          display: none;
+          /* thease 3 lines above means do not show panel 4th and 5th */
+      }
+  }
