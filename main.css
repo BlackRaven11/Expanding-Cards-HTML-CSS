@@ -37,7 +37,7 @@
       margin: 10px;
       /* we separete cards by giving margin by the amount of 10px */
       position: relative;
-      transition: flex 0.7 ease-in;
+      transition: flex 0.7s ease-in;
   }
   
   .panel h3 {
